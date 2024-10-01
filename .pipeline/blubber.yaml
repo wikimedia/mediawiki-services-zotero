@@ -1,11 +1,11 @@
 ---
 version: v4
-base: docker-registry.wikimedia.org/nodejs18-slim
+base: docker-registry.wikimedia.org/nodejs20-slim
 variants:
   build:
-    base: docker-registry.wikimedia.org/nodejs18-devel
+    base: docker-registry.wikimedia.org/nodejs20-slim
     copies: [local]
-    apt: { packages: [git, build-essential, npm] }
+    apt: { packages: [git, build-essential] }
     node: { requirements: [package.json, package-lock.json] }
     runs: { environment: { LINK: g++ } }
   test:
